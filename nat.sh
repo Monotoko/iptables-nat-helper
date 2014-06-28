@@ -34,7 +34,7 @@ exit 1;
 #First we check if we actually have some arguments.
 
 if [ -z $1 ]; then
-die "No arguments supplied - Please use natt help"
+die "No arguments supplied - Please use nat.sh help"
 fi
 
 
