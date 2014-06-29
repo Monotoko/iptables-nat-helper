@@ -21,6 +21,10 @@ This will create a one to one NAT from an address externally to an address inter
 
 * nat.sh one-to-one [WAN IP] [LAN IP]
 
+This will close all ports and flush all the rules. Use in emergencies only.
+
+* nat.sh 911
+
 Examples
 =======
 
