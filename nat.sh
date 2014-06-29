@@ -65,6 +65,13 @@ iptables -t nat -A POSTROUTING -o $2 -j MASQUERADE
 iptables -A FORWARD -i $2 -o $3 -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A FORWARD -i $3 -o $2 -j ACCEPT
 
+elif [ $1 == "911" ]; then
+
+echo "Initiating Emergency Sequence..."
+iptables -t nat -F
+iptables -t nat -X
+echo "All ports closed"
+
 elif [ $1 == "help" ]; then
 
 echo "Add single port, accepts TCP and UDP: $(tput setaf 1)open [external] [internal] [protocol] [port]$(tput sgr0)"
@@ -72,6 +79,10 @@ echo "Remove single port: $(tput setaf 1)close [external] [internal] [protocol] 
 echo "1 to 1 NATTING: $(tput setaf 1)one-to-one [external] [internal]$(tput sgr0)"
 echo "Shows all current nat rules: $(tput setaf 1)show$(tput sgr0)"
 echo "Initialises the NAT between two networks: $(tput setaf 1)init [external network name] [internal network name]$(tput sgr0)"
+
+else
+
+echo "Hmm.. this script doesn't know what you wanted. Maybe you should ask the other guy?"
 
 fi
 
